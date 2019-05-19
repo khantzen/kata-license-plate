@@ -32,10 +32,7 @@ nextLetter:: Letter -> Letter
 nextLetter letter = chr (ord letter + 1)
 
 stringAsPlate:: String -> LicensePlate
-stringAsPlate [p1, p2, '-', x, y, z, '-', s1, s2] = ([p1,p2], (toInt x, toInt y, toInt z), [s1,s2])
-
-toInt:: Char -> Int
-toInt char = read [char] :: Int
+stringAsPlate [p1, p2, '-', x, y, z, '-', s1, s2] = ([p1,p2], (digitToInt x, digitToInt y, digitToInt z), [s1,s2])
 
 plateAsString:: LicensePlate -> String
 plateAsString (prefix, (x,y,z), suffix) = prefix ++ "-" ++ show x ++ show y ++ show z ++ "-" ++ suffix
